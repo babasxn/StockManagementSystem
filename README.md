@@ -341,8 +341,9 @@ select * from view1;
 
 ![viewproof](https://user-images.githubusercontent.com/71126953/167788589-fc39e045-e14c-4b4c-9d8f-c7b9affc91e2.PNG)
 
+![view1](https://user-images.githubusercontent.com/71126953/167789301-96cb28c7-c950-4d0d-a743-5834a53fe499.PNG)
 
-![viewproof](https://user-images.githubusercontent.com/71126953/167788611-f074f96d-2934-4e9a-8939-69df356ebcf5.PNG)
+
 
 
 **7.Joins**
@@ -363,14 +364,23 @@ select managing_employees.name, managing_employees.salary, accountants.invoices_
 **8.Triggers**
 
 create or replace trigger display_reg_org
+
 before delete or insert or update on reg_org
+
 for each row
+
 when (NEW.reg_id > 0)
+
 declare
+
 region_name varchar(50);
+
 begin
+
 dbms_output.put_line('Old Region Name: '||:OLD.region);
+
 dbms_output.put_line('New Region Name: '||:NEW.region);
+
 end;
 /
 
@@ -380,15 +390,25 @@ end;
 **9. Cursors**
 
 declare
+
 total_rows number(3);
+
 begin
+
 select * from reg_org;
+
 if sql%notfound then
+
 dbms_output.put_line('No Customers selected');
+
 elsif sql%found then
+
 total_rows:=sql%rowcount;
+
 dbms_output.put_line(total_rows || ' customers selected ');
+
 end if;
+
 end;
 /
 
