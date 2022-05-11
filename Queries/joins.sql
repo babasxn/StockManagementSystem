@@ -1,0 +1,3 @@
+select portfolio.p_symbols, portfolio.buy_price, equities.current from portfolio inner join equities on equities.e_symbols=portfolio.p_symbols;
+select managing_employees.name, managing_employees.salary, accountants.invoices_handled from managing_employees right join accountants on managing_employees.emp_id=accountants.a_emp_id;
+select managing_employees.name, managing_employees.salary, accountants.invoices_handled from managing_employees left join accountants on managing_employees.emp_id=accountants.a_emp_id;
